@@ -4,10 +4,6 @@ class Animal {
     public Animal(String name) {
         this.name = name;
     }
-
-    public void printName() {
-        System.out.println("이름: " + name);
-    }
 }
 class Dog extends Animal {
     String breed;
@@ -17,17 +13,18 @@ class Dog extends Animal {
         this.breed = breed;
         }
 
-    @Override  //어노테이션: 주석 + 기능
     public void printName() {
         System.out.println("이름: " + name + ", 종 : " + breed);
     }
 
-
 }
 public class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog("쿠키","말티즈");
+        Animal dog = new Dog("쿠키","말티즈");
 
-        dog.printName();
+        if(dog instanceof  Dog) {
+            Dog newDog = (Dog) dog;
+            newDog.printName();
+        }
     }
 }
